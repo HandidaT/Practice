@@ -9,15 +9,38 @@ struct Node{
 
 Node *head;
 
-void Print(){
+void iterative_print(){
     Node *temp=head;
     cout<<"List is: ";
     while(temp!=NULL){
         cout<<temp->data;
         temp=temp->next;
     }
-    cout<<endl;
+    // cout<<endl;
 }
+
+
+// Recursive function to reverse print.
+void recursive_print(Node *p){
+    if (p==NULL){
+        cout<<endl;
+        return;
+    }                        // To make this recursive function print
+    recursive_print(p->next);// normally, replace the cout<<p->data; 
+    cout<<p->data;           // statement above the recursive call. 
+};
+
+void recursive_reverse(Node *p){
+    if (p->next==NULL){
+        head=p;
+        cout<<head->data;
+        return;
+    }
+    recursive_reverse(p->next);
+    p->next->next=p;
+    p->next=NULL;
+    cout<<p->data;
+};
 
 void Insert(int data,int n){
     Node *temp1=new Node;
@@ -40,7 +63,7 @@ void Delete(int n){
     Node *temp1=head;
     if(n==1){
         head=temp1->next;
-        delete(temp1);
+        delete temp1;
         return;
     }
     for(int i=0;i<n-2;i++){
@@ -48,10 +71,10 @@ void Delete(int n){
     }
     Node *temp2=temp1->next;
     temp1->next=temp2->next;
-    delete(temp2);
+    delete temp2;
 };
 
-void Reverse(){
+void iterative_reverse(){
     Node *current,*prev,*next;
     current=head;
     prev=NULL;
@@ -77,8 +100,8 @@ int main() {
         cout<<"Enter the position: ";
         cin>>position;
         Insert(num,position);
+        iterative_print();
     }
-    Print();
 
     string y;
     cout<<"Enter 'y' to delete items or 'r' to reverse list: ";
@@ -89,38 +112,25 @@ int main() {
             cout<<"Enter position: ";
             cin>>position;
             Delete(position);
-            Print();
+            iterative_print();
         }
     }
     else if (y=="r"){
-        Reverse();
-        Print();
+        string method;
+        cout<<"Enter 'r' for recursive method or any key for iterative method: ";
+        cin>>method;
+        if(method=="r"){
+            cout<<"Recursive reverse ";
+            recursive_reverse(head);
+            cout<<endl<<"iterative print";
+            iterative_print();
+            cout<<endl<<"recursive reverse print";
+            recursive_print(head);           
+        }
+        else{
+            iterative_reverse();
+            iterative_print();
+        }
     }
     return 0;
-
-
-
-
-    // Insert(2,1);
-    // Insert(3,2);
-    // Insert(4,1);
-    // Insert(5,2);
-    // Print();
-    // cout<<"Enter how many numbers? ";
-    // int n;
-    // cout<<endl;
-    // cin>>n;
-    // for(int i=0;i<n;i+=1){
-    //     int x;
-    //     cout<<"Enter the number: ";
-    //     cin>>x;
-    //     Insert(x);
-    //     Print();
-    // }
-    // return 0;
 }
-
-// int main(){
-//     cout<<"Hello World";
-//     return 0;
-// }
