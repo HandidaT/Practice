@@ -1,0 +1,41 @@
+p{
+/*color: red;
+font-family: helvetica;
+font-weight:bold;
+font-size: 28px; */
+
+font: italic bold 36px helvetica;
+color: brown ;
+
+border:4px solid;
+padding: 20px;
+margin: 100px;
+
+}
+
+body{
+/*background-image: url("river1.png");
+background-size: cover-x;
+background-repeat: no-repeat;
+background-color: black;*/
+
+/*background short cut: bg-color bg-image position/bg=size bg-repeat bg-attachment; */
+background: black url("river1.png") no-repeat scroll;
+
+}
+
+div{
+border:1px solid;
+width:400px;
+height:600px;
+}
+
+span{
+color : white;
+border:1px solid green;
+display: block;
+}
+
+ul{
+list-style-type: square;}
+

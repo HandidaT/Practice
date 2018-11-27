@@ -1,0 +1,48 @@
+body{
+color: white;
+background: black;
+}
+
+
+p{
+border: 3px solid red}
+
+.float{float: left;}
+
+.rounded-corners{
+border-radius: 50%}
+
+.gradient{
+height:300px;
+width: 100%;
+background:red;
+background: linear-gradient(to right,red,blue)}
+
+
+
+
+
+
+
+/* id 1
+.red-text p{
+color: red;
+}
+
+.blue-text p{
+color: blue;
+}
+
+#green{
+color: green;
+}
+
+.red{
+color: red;
+}
+
+.blue{
+color: blue;
+}*/
+
+
