@@ -26,7 +26,7 @@ void recursive_print(Node *p){
         cout<<endl;
         return;
     }                        // To make this recursive function print
-    recursive_print(p->next);// normally, replace the cout<<p->data; 
+    recursive_print(p->next);// normally, move the cout<<p->data; 
     cout<<p->data;           // statement above the recursive call. 
 };
 
